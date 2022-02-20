@@ -6,15 +6,6 @@
   define('DATABASE_NAME','groupscheduler');
   define('SITE_URL', 'http://localhost/dev/groupscheduler/web/');
 
-// 参考
-//「https://limesnake4.sakura.ne.jp/」＝「http://localhost/dev/」
-// サーバーが変わったときは以下の設定を変更するだけで良い
-  // define('HOST_NAME','mysql57.limesnake4.sakura.ne.jp');
-  // define('DATABASE_USER_NAME','limesnake4');
-  // define('DATABASE_PASSWORD','Yaguchi88');
-  // define('DATABASE_NAME','limesnake4_groupscheduler');
-  // define('SITE_URL', 'http://groupscheduler.net/');
-
 // メールフォーム
 define('ADMIN_EMAIL', 'yaguchi1061@gmail.com');
 

@@ -1,0 +1,98 @@
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'project'
+--
+-- ---
+
+DROP TABLE IF EXISTS `project`;
+
+CREATE TABLE `project` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `deadline` DATETIME NOT NULL,
+  `manage_key` VARCHAR(255) NOT NULL,
+  `attend_key` VARCHAR(255) NOT NULL,
+  `created_at` TIMESTAMP NOT NULL,
+  `updated_at` TIMESTAMP NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'candidates'
+--
+-- ---
+
+DROP TABLE IF EXISTS `candidates`;
+
+CREATE TABLE `candidates` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `project_id` INTEGER NOT NULL,
+  `candidate_at_start` DATETIME NOT NULL,
+  `candidate_at_end` DATETIME NULL,
+  `created_at` TIMESTAMP NOT NULL,
+  `updated_at` TIMESTAMP NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'members'
+--
+-- ---
+
+DROP TABLE IF EXISTS `members`;
+
+CREATE TABLE `members` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `project_id` INTEGER NOT NULL,
+  `member_name` VARCHAR(128) NOT NULL,
+  `created_at` TIMESTAMP NOT NULL,
+  `updated_at` TIMESTAMP NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'candidate_member'
+--
+-- ---
+
+DROP TABLE IF EXISTS `candidate_member`;
+
+CREATE TABLE `candidate_member` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `candidate_id` INTEGER NOT NULL,
+  `member_id` INTEGER NOT NULL,
+  `attend_flag` INTEGER NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Foreign Keys
+-- ---
+
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `project` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `candidates` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `members` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `candidate_member` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `project` (`id`,`deadline`,`manage_key`,`attend_key`,`created_at`,`updated_at`) VALUES
+-- ('','','','','','');
+-- INSERT INTO `candidates` (`id`,`project_id`,`candidate_at_start`,`candidate_at_end`,`created_at`,`updated_at`) VALUES
+-- ('','','','','','');
+-- INSERT INTO `members` (`id`,`project_id`,`member_name`,`created_at`,`updated_at`) VALUES
+-- ('','','','','');
+-- INSERT INTO `candidate_member` (`id`,`candidate_id`,`member_id`,`attend_flag`) VALUES
+-- ('','','','');
